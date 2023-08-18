@@ -18,7 +18,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background: var(--theme);
-	color: var(--while);
+	color: var(--white);
 	overflow-x: hidden;
 }
 

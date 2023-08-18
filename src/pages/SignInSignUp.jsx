@@ -1,17 +1,18 @@
-import React, { useState } from "react";
-import Header from "../Components/Header";
-import InputComponent from "../Components/Input";
-import Button from "../Components/Button";
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { auth, db } from "../firebase";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setUser } from "../redux/slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Button from "../Components/Button";
+import Header from "../Components/Header";
+import InputComponent from "../Components/Input";
+import { auth, db } from "../firebase";
+import { setSignInStatus } from "../redux/slices/statusSlice";
+import { setUser } from "../redux/slices/userSlice";
 
 const SignInSignUp = () => {
 	const [isSignIn, setIsSignIn] = useState(false);
@@ -53,6 +54,8 @@ const SignInSignUp = () => {
 						uid: user.uid,
 					})
 				);
+
+				dispatch(setSignInStatus());
 				// Let the User Know that He/She is Successfully Signed in
 				toast.success("Signed in successfully");
 

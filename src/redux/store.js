@@ -1,12 +1,17 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import useReducer from "./slices/userSlice";
 import { Provider } from "react-redux";
+import statusReducer from "./slices/statusSlice";
+
+// Root Reducer
+const RootReducer = combineReducers({
+	user: useReducer,
+	status: statusReducer,
+});
 
 // Store
 const store = configureStore({
-	reducer: {
-		user: useReducer,
-	},
+	reducer: RootReducer,
 });
 
 // Creating the Store Provider:

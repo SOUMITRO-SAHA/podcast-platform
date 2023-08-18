@@ -11,6 +11,7 @@ import { auth, db } from "./firebase";
 import { doc, onSnapshot } from "firebase/firestore";
 import { useDispatch } from "react-redux";
 import { setUser } from "./redux/slices/userSlice";
+import CreatePodcast from "./pages/CreatePodcast";
 
 function App() {
 	const dispatch = useDispatch();
@@ -50,15 +51,16 @@ function App() {
 			unsubscribeAuth();
 		};
 	}, []);
+
 	return (
 		<div className='App'>
 			<ToastContainer />
 			<Routes>
 				<Route path='/' element={<SignInSignUp />} />
-				<Route path='/profile' element={<Profile />} />
 				<Route element={<PrivateRoutes />}>
+					<Route path='/profile' element={<Profile />} />
 					<Route path='/podcasts' element={<Podcasts />} />
-					<Route path='/create-podcast' />
+					<Route path='/create-podcast' element={<CreatePodcast />} />
 					<Route path='/podcast/:podcastId' />
 					<Route path='/podcast/:podcastId/create-episode' />
 				</Route>
