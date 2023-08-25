@@ -102,7 +102,6 @@ const SignInSignUp = () => {
 				const userDoc = await getDoc(doc(db, "users", user.uid));
 				const userData = userDoc.data();
 				// Todo: UserData is not comming. Debug Later.
-				console.log("User Data", userData);
 
 				// Now Store the User into the Redux:
 				dispatch(

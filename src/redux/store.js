@@ -2,11 +2,13 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import useReducer from "./slices/userSlice";
 import { Provider } from "react-redux";
 import statusReducer from "./slices/statusSlice";
+import podcastReducer from "./slices/podcastSlice";
 
 // Root Reducer
 const RootReducer = combineReducers({
 	user: useReducer,
 	status: statusReducer,
+	podcasts: podcastReducer,
 });
 
 // Store

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FcCheckmark } from "react-icons/fc";
 
-const FileInput = ({ accept, id, fileHandleFn }) => {
+const FileInput = ({ accept, id, fileHandleFn, placeholder }) => {
 	const [file, setFile] = useState("");
 
 	const onChange = (e) => {
@@ -22,7 +22,7 @@ const FileInput = ({ accept, id, fileHandleFn }) => {
 				htmlFor={id}
 				className='border-[3px] border-dashed p-3 rounded border-purple-gray text-purple-gray cursor-pointer'
 			>
-				{file ? onFileSelecteElement : "Add Image"}
+				{file ? onFileSelecteElement : placeholder}
 			</label>
 			<input
 				type='file'

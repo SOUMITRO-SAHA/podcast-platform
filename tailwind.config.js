@@ -9,6 +9,9 @@ module.exports = {
 				gray: "#d7d7d7",
 				"purple-gray": "#8f8297",
 			},
+			backgroundImage: {
+				pg: "linear-gradient(177.7deg, rgba(58, 129, 191, 0.3) 1.63%, rgba(65, 48, 90, 0.009))",
+			},
 		},
 	},
 	plugins: [],

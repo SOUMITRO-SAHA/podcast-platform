@@ -12,6 +12,8 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { useDispatch } from "react-redux";
 import { setUser } from "./redux/slices/userSlice";
 import CreatePodcast from "./pages/CreatePodcast";
+import PodcastDetails from "./pages/PodcastDetails";
+import CreateAnEpisodePage from "./pages/CreateAnEpisodePage";
 
 function App() {
 	const dispatch = useDispatch();
@@ -50,7 +52,7 @@ function App() {
 		return () => {
 			unsubscribeAuth();
 		};
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<div className='App'>
@@ -61,8 +63,11 @@ function App() {
 					<Route path='/profile' element={<Profile />} />
 					<Route path='/podcasts' element={<Podcasts />} />
 					<Route path='/create-podcast' element={<CreatePodcast />} />
-					<Route path='/podcast/:podcastId' />
-					<Route path='/podcast/:podcastId/create-episode' />
+					<Route path='/podcast/:podcastId' element={<PodcastDetails />} />
+					<Route
+						path='/podcast/:podcastId/create-episode'
+						element={<CreateAnEpisodePage />}
+					/>
 				</Route>
 			</Routes>
 		</div>
