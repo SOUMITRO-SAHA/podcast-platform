@@ -11,7 +11,6 @@ const Podcasts = () => {
 	const [search, setSearch] = useState("");
 	const dispatch = useDispatch();
 	const podcasts = useSelector((state) => state.podcasts.podcasts);
-	// console.log(podcasts);
 
 	// For Implement the Search Functionality we have to filter the podcast:
 	const filteredResult = podcasts?.filter((item) => {
@@ -46,8 +45,6 @@ const Podcasts = () => {
 	const podcastCards = filteredResult?.map((item) => (
 		<PodcastCard item={item} />
 	));
-
-	console.log(search);
 
 	return (
 		<main>

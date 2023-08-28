@@ -37,7 +37,6 @@ const SignInSignUp = () => {
 					password
 				);
 				const user = userCredential.user;
-				console.log("User", user);
 
 				// Save the User into the Store:
 				await setDoc(doc(db, "user", user.uid), {
